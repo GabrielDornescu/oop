@@ -1,4 +1,4 @@
-<?php include 'db.class.php';
+<?php include "db.class.php";
 
 class Crud extends DatabaseConnection
 {

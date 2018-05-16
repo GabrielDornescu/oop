@@ -1,6 +1,8 @@
 <?php
 include "functions.php";
 include "classes/validation.php";
+include "classes/crud.php";
+
 
 /**
  * Created by PhpStorm.
@@ -9,7 +11,7 @@ include "classes/validation.php";
  * Time: 8:34 PM
  */
 
-
+$crud = new Crud();
 
 if (isset($_POST['submit']))
 {
@@ -19,10 +21,11 @@ if (isset($_POST['submit']))
 
 
 }
-elseif (isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $id=$_GET['id'];
 
      $result = $crud->getData("SELECT start,end,iterations FROM multiplication WHERE id=$id");
+
 
 
 foreach ($result as $res) {
@@ -37,7 +40,7 @@ foreach ($result as $res) {
 
         $multiplication = new Multiplications($start,$end,$iterations);
         $database = new DatabaseConnection();
-        $database->saveRequestToDB($_POST['startPoint'], $_POST['endPoint'], $_POST['iterations']);
+        $database->saveRequestToDB($start,$end,$iterations);
 
 
 if ($multiplication->isInputValid()){

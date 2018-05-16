@@ -1,5 +1,4 @@
-<?php include "classes/db.class.php";
-error_reporting(0);
+<?php
 class Multiplications
 {
 
