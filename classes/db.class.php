@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gaby
- * Date: 08/05/2018
- * Time: 23:13
- */
 
 class DatabaseConnection
 {
@@ -16,6 +10,7 @@ class DatabaseConnection
     public $user;
     public $password;
     public $basename;
+
 
 
     public function __construct()
@@ -40,13 +35,12 @@ class DatabaseConnection
 
     public function saveRequestToDB($startpoint, $endpoint, $iterations)
     {
-
         $connection = mysqli_query($this->connect, "INSERT INTO multiplication (start,end,iterations) VALUES ('$startpoint', '$endpoint','$iterations')");
         if (!$connection)
-            throw new Exception("Error: not connect to the server");
+            die("Error: not connect to the server");
 
     }
 
-
 }
+
 
